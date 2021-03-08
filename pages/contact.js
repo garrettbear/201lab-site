@@ -1,16 +1,16 @@
-import Head from 'next/head'
-import { useAmp } from 'next/amp'
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import Link from 'next/link'
-import Footer from '../components/Footer'
+import Head from "next/head";
+import { useAmp } from "next/amp";
+import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
+import Link from "next/link";
+import Footer from "../components/Footer";
 
 export const config = {
   amp: true,
-}
+};
 
 export default function IndexPage() {
-  const isAmp = useAmp()
+  const isAmp = useAmp();
 
   return (
     <Layout>
@@ -24,7 +24,7 @@ export default function IndexPage() {
               className="logo"
               layout="flex-item"
               alt="201 Lab"
-              src='/images/201lablogo.png'
+              src="/images/201lablogo.png"
             />
           </a>
         </Link>
@@ -41,8 +41,7 @@ export default function IndexPage() {
         <div className="section-text">
           <h1>Contact</h1>
           <div className="contact-info">
-          <p>Garrett Whisten</p>
-          <p>Email: garrett@201lab.com</p> 
+            <h3>garrett@201lab.com</h3>
           </div>
         </div>
         <div className="section-image">
@@ -54,12 +53,12 @@ export default function IndexPage() {
             src="/images/liquid.jpg"
           />
         </div>
-      </div> 
+      </div>
       <Footer />
       <style jsx>{`
         @font-face {
           font-family: Eurostile-Extended;
-          src: url('../fonts/eurostile-extended.ttf');
+          src: url("../fonts/eurostile-extended.ttf");
         }
         body {
           color: black;
@@ -120,5 +119,5 @@ export default function IndexPage() {
         }
       `}</style>
     </Layout>
-  )
+  );
 }

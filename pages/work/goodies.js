@@ -1,17 +1,16 @@
-import Head from 'next/head'
-import { useAmp } from 'next/amp'
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import Link from 'next/link'
-import Footer from '../components/Footer'
-import Section from '../components/Section'
+import Head from "next/head";
+import { useAmp } from "next/amp";
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import Link from "next/link";
+import Footer from "../../components/Footer";
 
 export const config = {
   amp: true,
-}
+};
 
 export default function HoldMeDown() {
-  const isAmp = useAmp()
+  const isAmp = useAmp();
 
   return (
     <Layout>
@@ -25,7 +24,7 @@ export default function HoldMeDown() {
               className="logo"
               layout="flex-item"
               alt="201 Lab"
-              src='/images/201lablogo.png'
+              src="/images/201lablogo.png"
             />
           </a>
         </Link>
@@ -40,29 +39,30 @@ export default function HoldMeDown() {
       </Navbar>
       <div className="section-container">
         <div className="section-text">
-            <h1>Hold Me Down</h1>
-            <p>Inspired by the distinct streetwear of LA our products reflect the city's rich diversity and help to elevate everyone's unique hairstyle. The city's sneaker culture further informed our drive to take a holistic approach to create blends that address the needs of all hair types. Our California laboratories mesh naturally sourced ingredients with our expert chemists' innovative approach to synthesize hair products as diverse as the Golden State.</p>
+          <h1>Goodies</h1>
+          <p>Unique goods. Nothing over $25.</p>
         </div>
         <div>
-          <Link href="https://hmdproduct.com">
+          <Link href="https://goodies.la">
             <a target="_blank" rel="noreferrer noopener">
               <button>VISIT SITE</button>
-            </a>  
+            </a>
           </Link>
         </div>
         <div className="work-pagination">
-          <Link href="/conform?amp=1">
-            <a className="work-link">
-              conform the people {'>'}
-            </a>    
+          <Link href="/work/conform-the-people?amp=1">
+            <a>{"<"} Conform The People</a>
           </Link>
-        </div>  
-      </div> 
+          <Link href="/work/pasadena-leisure-club?amp=1">
+            <a>Pasadena Leisure Club {">"}</a>
+          </Link>
+        </div>
+      </div>
       <Footer />
       <style jsx>{`
         @font-face {
           font-family: Eurostile-Extended;
-          src: url('../public/fonts/eurostile-extended.ttf');
+          src: url("../public/fonts/eurostile-extended.ttf");
         }
         body {
           color: black;
@@ -123,9 +123,9 @@ export default function HoldMeDown() {
           width: 90%;
           display: flex;
           flex-direction: row;
-          justify-content: flex-end;
+          justify-content: space-between;
         }
       `}</style>
     </Layout>
-  )
+  );
 }

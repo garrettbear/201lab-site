@@ -1,16 +1,16 @@
-import Head from 'next/head'
-import { useAmp } from 'next/amp'
-import Layout from '../components/Layout'
-import Navbar from '../components/Navbar'
-import Link from 'next/link'
-import Footer from '../components/Footer'
+import Head from "next/head";
+import { useAmp } from "next/amp";
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import Link from "next/link";
+import Footer from "../../components/Footer";
 
 export const config = {
   amp: true,
-}
+};
 
 export default function HoldMeDown() {
-  const isAmp = useAmp()
+  const isAmp = useAmp();
 
   return (
     <Layout>
@@ -24,7 +24,7 @@ export default function HoldMeDown() {
               className="logo"
               layout="flex-item"
               alt="201 Lab"
-              src='/images/201lablogo.png'
+              src="/images/201lablogo.png"
             />
           </a>
         </Link>
@@ -39,29 +39,30 @@ export default function HoldMeDown() {
       </Navbar>
       <div className="section-container">
         <div className="section-text">
-            <h1>EcomRush</h1>
-            <p>EcomRush is our tech center here at 201 Lab. Our in-house developers build apps to support our brands.</p>
+          <h1>EcomRush</h1>
+          <p>
+            EcomRush is our tech center here at 201 Lab. Our in-house developers
+            build apps to support our brands.
+          </p>
         </div>
         <div>
           <Link href="https://ecomrush.com">
             <a target="_blank" rel="noreferrer noopener">
               <button>VISIT SITE</button>
-            </a>  
+            </a>
           </Link>
         </div>
         <div className="work-pagination">
-          <Link href="/stone?amp=1">
-            <a>
-              {'<'} stone and mist
-            </a>    
+          <Link href="/work/stone-and-mist?amp=1">
+            <a>{"<"} Stone &amp; Mist</a>
           </Link>
-        </div>  
-      </div> 
+        </div>
+      </div>
       <Footer />
       <style jsx>{`
         @font-face {
           font-family: Eurostile-Extended;
-          src: url('../public/fonts/eurostile-extended.ttf');
+          src: url("../public/fonts/eurostile-extended.ttf");
         }
         body {
           color: black;
@@ -120,12 +121,12 @@ export default function HoldMeDown() {
           opacity: 0.5;
         }
         .work-pagination {
-            width: 90%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+          width: 90%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
         }
       `}</style>
     </Layout>
-  )
+  );
 }
