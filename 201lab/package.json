@@ -4,10 +4,12 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "next": "latest",
+    "next-on-netlify": "^2.9.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
