@@ -41,7 +41,7 @@ export default function IndexPage() {
         <div className="section-text">
           <h1>Contact</h1>
           <div className="contact-info">
-            <h3>garrett@201lab.com</h3>
+            <h3>contact@201lab.com</h3>
           </div>
         </div>
         <div className="section-image">
