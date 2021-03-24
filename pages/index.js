@@ -86,7 +86,7 @@ export default function IndexPage() {
         <h1>We are a brand incubator.</h1>
         <p>
           Design, Development, Production, Photography, Research, Shipping,
-          Technology, Video
+          Technology
         </p>
       </div>
       <div className="services">
