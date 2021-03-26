@@ -3,9 +3,9 @@ import Link from "next/link"
 export default function Footer () {
     return (
         <div className="footer">
-          <div className="footer-link">
-            <Link href="/contact?amp=1">
-                <a>Hit us up.</a>
+          <div>
+            <Link href="/contact">
+                <a className="footer-link">Hit us up.</a>
             </Link>     
           </div>
           <div>
@@ -13,24 +13,6 @@ export default function Footer () {
                 2021 © || 201 Lab
             </p>
           </div>
-          <style jsx>{`
-            .footer {
-                background-color: black;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 8em;
-            }
-            a {
-                font-size: 3em; 
-                
-                color: white;
-            }
-            .footer-text {
-
-            }
-          `}
-          </style>
         </div>
     );
 }
