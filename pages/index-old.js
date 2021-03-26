@@ -1,50 +1,65 @@
 import Head from "next/head";
+import { useAmp } from "next/amp";
 import Layout from "../components/Layout";
-<<<<<<< HEAD
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import Section from "../components/Section";
-=======
->>>>>>> 08d574e3ab527949a99ee75a34bc23b4ccb10da5
+
+export const config = {
+  amp: true,
+};
 
 export default function IndexPage() {
+  const isAmp = useAmp();
+
   return (
     <Layout>
       <Head>
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-      </style>
-      <link rel="icon" type="image/png" href="/images/201-lab-favicon.png" />
         <title>201 Lab</title>
-<<<<<<< HEAD
+        <script
+          async
+          custom-element="amp-font"
+          src="https://cdn.ampproject.org/v0/amp-font-0.1.js"
+        ></script>
       </Head>
-      <Navbar />
+      <Navbar>
+        <Link href="/">
+          <a>
+            <amp-img
+              className="logo"
+              layout="flex-item"
+              alt="201 Lab"
+              src="/images/201lablogo.png"
+            />
+          </a>
+        </Link>
+        <div className="links">
+          <Link href="/work?amp=1">
+            <a className="nav-link">Work</a>
+          </Link>
+          <Link href="/contact?amp=1">
+            <a className="nav-link">Contact</a>
+          </Link>
+        </div>
+      </Navbar>
       <div className="header-container">
-        <img
-          className="header-image"
+        <amp-img
           alt="Hold Me Down"
+          width="400"
+          height="250"
+          layout="responsive"
           src="/images/HMD.jpg"
         />
         <div className="header-title">
-          <h1 className="header-text">
+          <amp-fit-text width="350" height="200" layout="responsive">
             Establish a brand under one roof.
-          </h1>
+          </amp-fit-text>
         </div>
       </div>
       <Section>
         <div className="section-text">
-          <h1 className="about-title">About Us</h1>
-=======
-        <meta property="og:title" content="201 Lab" key="title" />
-      </Head>
-      <div className="main-wrapper">
-        <h1>
-          <img className="logo" alt="201 Lab" src="/images/201lablogo.png" />
-        </h1>
-        <div className="text-wrapper">
-          <h3>Referrals Only</h3>
->>>>>>> 08d574e3ab527949a99ee75a34bc23b4ccb10da5
+          <h1>About Us</h1>
           <p>
             201 Lab builds consumer brands from idea to finished products
             shipped to the customer. Our team specializes most in health and
@@ -57,18 +72,19 @@ export default function IndexPage() {
             utilizing 201 Lab as a parent company. Available a la carte as well.
           </p>
         </div>
-<<<<<<< HEAD
-          <img
-            className="about-image"
+        <div className="section-image">
+          <amp-img
             alt="Brand Image"
+            layout="flex-item"
             width="650"
             height="700"
             src="/images/DSC.jpg"
           />
+        </div>
       </Section>
       <div className="section-small">
-        <h1 className="section-small-title">We are a brand incubator.</h1>
-        <p className="section-small-text">
+        <h1>We are a brand incubator.</h1>
+        <p>
           Design, Development, Production, Photography, Research, Shipping,
           Technology, Video
         </p>
@@ -79,7 +95,9 @@ export default function IndexPage() {
         </div>
         <div className="text-container">
           <div className="services-text">
-              <h3 className="services-title">Design &amp; Content Creation</h3>
+            <div className="services-title">
+              <h3>Design &amp; Content Creation</h3>
+            </div>
             <div className="services-description">
               <p>
                 It all begins with an idea and a story, then our designers get
@@ -91,7 +109,9 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-              <h3 className="services-title">Development &amp; Technology</h3>
+            <div className="services-title">
+              <h3>Development &amp; Technology</h3>
+            </div>
             <div className="services-description">
               <p>
                 Our developers specialize in e-commerce and retail store
@@ -101,7 +121,9 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-              <h3 className="services-title">Product R&amp;D</h3>
+            <div className="services-title">
+              <h3>Product R&amp;D</h3>
+            </div>
             <div className="services-description">
               <p>
                 With one of our founders being a skin and health chemist, we
@@ -112,7 +134,9 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-              <h3 className="services-title">Production &amp; Operations</h3>
+            <div className="services-title">
+              <h3>Production &amp; Operations</h3>
+            </div>
             <div className="services-description">
               <p>
                 We’ve been through this process with clients countless times and
@@ -128,7 +152,9 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-              <h3 className="services-title">Marketing &amp; Sales</h3>
+            <div className="services-title">
+              <h3>Marketing &amp; Sales</h3>
+            </div>
             <div className="services-description">
               <p>
                 From social media to PR, we make sure to draw the appropriate
@@ -138,7 +164,7 @@ export default function IndexPage() {
           </div>
         </div>
         <div>
-          <Link href="/contact">
+          <Link href={isAmp ? "/contact?amp=1" : "/contact"}>
             <a>
               <button>WORK WITH US</button>
             </a>
@@ -146,31 +172,101 @@ export default function IndexPage() {
         </div>
       </div>
       <Footer />
-=======
-      </div>
       <style jsx>{`
-        .main-wrapper {
-          min-height: 100vh;
-          min-width: 100vw;
-          padding: 10%;
-          background-color: #eeeee8;
+        body {
           color: black;
         }
-        .text-wrapper {
-          max-width: 630px;
-          line-height: 1.5;
-        }
-        h3 {
-          font-size: 1.3rem;
+        h1 {
+          font-size: 3rem;
           margin-bottom: 0.7em;
           color: black;
         }
         .logo {
+          height: 80px;
           width: 200px;
-          height: auto;
+        }
+        a {
+          color: black;
+          text-decoration: none;
+          padding: 0 10px;
+        }
+        .links {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .nav-link:hover {
+          text-decoration: underline;
+        }
+        .header-container {
+          position: relative;
+        }
+        .header-title {
+          position: absolute;
+          color: white;
+          top: 3%;
+          left: 10%
+          width: 80%;
+          text-align: center
+        }
+        .section-image {
+          align-items: right;
+        }
+        .section-text {
+          padding: 2em 3em;
+          line-height: 2em;
+          color: black;
+        }
+        
+        .section-small {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 15em 10em;
+          color: black;
+        }
+        .services {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: #eeeee8;
+          padding: 5em;
+        }
+        .services-text {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          width: 85%;
+          color: black;
+          margin: 0 auto;
+        }
+        h3 {
+          font-size: 2rem;
+        }
+        .services-title {
+          font-size: 2rem;
+          width: 30%;
+          padding: .5rem;
+        }
+        .services-description {
+          width: 70%;
+          padding: .5rem;
+        }
+        button {
+          margin: 5em;
+          background-color: black;
+          color: white;
+          padding: 2em 3em;
+          border: none;
+          font-size: 0.75em;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        button:hover {
+          opacity: 0.5;
         }
       `}</style>
->>>>>>> 08d574e3ab527949a99ee75a34bc23b4ccb10da5
     </Layout>
   );
 }
