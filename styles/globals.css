@@ -91,8 +91,13 @@ h1 {
   position: relative;
 }
 .header-image {
+<<<<<<< HEAD
   width: 100%;
   height: auto;
+=======
+  width: 65em;
+  height: 38em;
+>>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
 }
 .header-text {
   color: white;
