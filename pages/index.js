@@ -1,13 +1,5 @@
 import Head from "next/head";
 import Layout from "../components/Layout";
-<<<<<<< HEAD
-import Navbar from "../components/Navbar";
-import Link from "next/link";
-import Footer from "../components/Footer";
-import Section from "../components/Section";
-=======
->>>>>>> 08d574e3ab527949a99ee75a34bc23b4ccb10da5
-
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import Footer from "../components/Footer";
@@ -17,13 +9,11 @@ export default function IndexPage() {
   return (
     <Layout>
       <Head>
-<<<<<<< HEAD
       <style>
         @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
       </style>
       <link rel="icon" type="image/png" href="/images/201-lab-favicon.png" />
         <title>201 Lab</title>
-<<<<<<< HEAD
       </Head>
       <Navbar />
       <div className="header-container">
@@ -41,40 +31,6 @@ export default function IndexPage() {
       <Section>
         <div className="section-text">
           <h1 className="about-title">About Us</h1>
-=======
-        <meta property="og:title" content="201 Lab" key="title" />
-      </Head>
-      <div className="main-wrapper">
-        <h1>
-          <img className="logo" alt="201 Lab" src="/images/201lablogo.png" />
-        </h1>
-        <div className="text-wrapper">
-          <h3>Referrals Only</h3>
->>>>>>> 08d574e3ab527949a99ee75a34bc23b4ccb10da5
-=======
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
-        </style>
-        <link rel="icon" type="image/png" href="/images/201-lab-favicon.png" />
-        <title>201 Lab</title>
-      </Head>
-      <Navbar />
-      <div className="header-container">
-        <img
-          className="header-image"
-          alt="Hold Me Down"
-          src="/images/HMD.jpg"
-        />
-        <div className="header-title">
-          <h1 className="header-text">Establish a brand under one roof.</h1>
-        </div>
-      </div>
-      <Section>
-        <div className="section-text">
-          <h1 className="about-title">About Us</h1>
-
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
           <p>
             201 Lab builds consumer brands from idea to finished products
             shipped to the customer. Our team specializes most in health and
@@ -87,8 +43,6 @@ export default function IndexPage() {
             utilizing 201 Lab as a parent company. Available a la carte as well.
           </p>
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
           <img
             className="about-image"
             alt="Brand Image"
@@ -96,15 +50,6 @@ export default function IndexPage() {
             height="700"
             src="/images/DSC.jpg"
           />
-=======
-        <img
-          className="about-image"
-          alt="Brand Image"
-          width="650"
-          height="700"
-          src="/images/DSC.jpg"
-        />
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
       </Section>
       <div className="section-small">
         <h1 className="section-small-title">We are a brand incubator.</h1>
@@ -119,11 +64,7 @@ export default function IndexPage() {
         </div>
         <div className="text-container">
           <div className="services-text">
-<<<<<<< HEAD
               <h3 className="services-title">Design &amp; Content Creation</h3>
-=======
-            <h3 className="services-title">Design &amp; Content Creation</h3>
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
             <div className="services-description">
               <p>
                 It all begins with an idea and a story, then our designers get
@@ -135,11 +76,7 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-<<<<<<< HEAD
               <h3 className="services-title">Development &amp; Technology</h3>
-=======
-            <h3 className="services-title">Development &amp; Technology</h3>
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
             <div className="services-description">
               <p>
                 Our developers specialize in e-commerce and retail store
@@ -149,11 +86,7 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-<<<<<<< HEAD
               <h3 className="services-title">Product R&amp;D</h3>
-=======
-            <h3 className="services-title">Product R&amp;D</h3>
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
             <div className="services-description">
               <p>
                 With one of our founders being a skin and health chemist, we
@@ -164,11 +97,7 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-<<<<<<< HEAD
               <h3 className="services-title">Production &amp; Operations</h3>
-=======
-            <h3 className="services-title">Production &amp; Operations</h3>
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
             <div className="services-description">
               <p>
                 We’ve been through this process with clients countless times and
@@ -184,11 +113,7 @@ export default function IndexPage() {
             </div>
           </div>
           <div className="services-text">
-<<<<<<< HEAD
               <h3 className="services-title">Marketing &amp; Sales</h3>
-=======
-            <h3 className="services-title">Marketing &amp; Sales</h3>
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
             <div className="services-description">
               <p>
                 From social media to PR, we make sure to draw the appropriate
@@ -204,38 +129,8 @@ export default function IndexPage() {
             </a>
           </Link>
         </div>
-<<<<<<< HEAD
       </div>
       <Footer />
-=======
-      </div>
-      <style jsx>{`
-        .main-wrapper {
-          min-height: 100vh;
-          min-width: 100vw;
-          padding: 10%;
-          background-color: #eeeee8;
-          color: black;
-        }
-        .text-wrapper {
-          max-width: 630px;
-          line-height: 1.5;
-        }
-        h3 {
-          font-size: 1.3rem;
-          margin-bottom: 0.7em;
-          color: black;
-        }
-        .logo {
-          width: 200px;
-          height: auto;
-        }
-      `}</style>
->>>>>>> 08d574e3ab527949a99ee75a34bc23b4ccb10da5
-=======
-      </div>
-      <Footer />
->>>>>>> 8f58782b1691edc5c2efd25371d790eeed1450e5
     </Layout>
   );
 }
