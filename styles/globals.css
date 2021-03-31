@@ -40,12 +40,6 @@ code {
 
 
 /* this is for mobile */
-.navbar {
-  background-color: #eeeee8;
-  padding: 1px 50px;
-  display: flex;
-  justify-content: space-between;
-}
 
 h1 {
   font-size: 30px;
@@ -91,8 +85,8 @@ h1 {
   position: relative;
 }
 .header-image {
-  width: 65em;
-  height: 38em;
+  width: 100%;
+  height: auto;
 }
 .header-text {
   color: white;
@@ -138,12 +132,11 @@ h1 {
 .image-container {
   display: flex;
   flex-direction: column;
-  padding: 0 2em;
 }
 .image-link {
   position: absolute;
-  width: 400px;
-  height: 430px;
+  width: 100%;
+  height: auto;
 }
 
 .section-text {
@@ -404,8 +397,8 @@ button {
   }
   .image-link {
     position: absolute;
-    width: 400px;
-    height: 430px;
+    width: 100%;
+    height: auto;
   }
   
   .section-small {
@@ -613,8 +606,8 @@ button {
     position: relative;
   }
   .header-image {
-    width: 2000px;
-    height: 1200px;
+    width: 100%;
+    height: auto;
   }
   .header-text {
     color: white;
@@ -642,8 +635,9 @@ button {
     margin-bottom: 1.5em;
   }
   .about-image {
-    width: 700px;
-    height: 800px;
+    width: 550px;
+    height: 650px;
+    margin-left: 2em;
   }
   .about-image:hover {
     cursor: pointer;
@@ -684,7 +678,7 @@ button {
   }
 
   .section-small-title {
-    font-size: 50px;
+    font-size: 45px;
   }
   .section-small-text {
     font-size: 12px;

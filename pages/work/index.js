@@ -24,8 +24,8 @@ export default function IndexPage() {
                 <a>
                   <img
                     alt="Hold Me Down"
-                    width="400"
-                    height="400"
+                    width="350"
+                    height="350"
                     src="/images/project-1.jpg"
                   />
                 </a>
@@ -36,8 +36,8 @@ export default function IndexPage() {
                 <a>
                   <img
                     alt="Conform The People"
-                    width="400"
-                    height="400"
+                    width="350"
+                    height="350"
                     src="/images/project-2.jpg"
                   />
                 </a>
@@ -48,8 +48,8 @@ export default function IndexPage() {
                 <a>
                   <img
                     alt="Goodies"
-                    width="400"
-                    height="400"
+                    width="350"
+                    height="350"
                     src="/images/project-3.jpg"
                   />
                 </a>
@@ -62,8 +62,8 @@ export default function IndexPage() {
                 <a>
                   <img
                     alt="Pasadena Leisure Club"
-                    width="400"
-                    height="400"
+                    width="350"
+                    height="350"
                     src="/images/project-4.jpg"
                   />
                 </a>
@@ -74,8 +74,8 @@ export default function IndexPage() {
                 <a>
                   <img
                     alt="Stone and Mist"
-                    width="400"
-                    height="400"
+                    width="350"
+                    height="350"
                     src="/images/project-5.jpg"
                   />
                 </a>
@@ -86,11 +86,10 @@ export default function IndexPage() {
                 <a>
                   <img
                     alt="EcomRush"
-                    width="400"
-                    height="400"
+                    width="350"
+                    height="350"
                     src="/images/project-6.jpg"
                   />
-                  `
                 </a>
               </Link>
             </div>
