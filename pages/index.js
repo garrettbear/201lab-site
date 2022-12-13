@@ -15,15 +15,28 @@ export default function IndexPage() {
         <div className="text-wrapper">
           <h3>Referrals Only</h3>
           <p>
-            201 Lab builds consumer brands from idea to finished products
-            shipped to the customer. Our team specializes most in health and
-            beauty products. We cover additional industries such as home and
-            apparel.
+            201 Lab is a technology company that specializes in web design, web
+            development, systems, networking, and security. The company was
+            founded with the goal of helping businesses and organizations to
+            improve their online presence and protect their networks from cyber
+            threats.
           </p>
           <p>
-            Our services are offered as a complete package to create the most
-            efficient process. We help make brands profitable faster at any size
-            utilizing 201 Lab as a parent company. Available a la carte as well.
+            With a team of experienced professionals, 201 Lab offers a range of
+            services that can help clients to design and develop user-friendly
+            websites, streamline their business processes, and enhance their
+            network security. The company's experts have extensive knowledge of
+            the latest technologies and trends in the industry, and are
+            committed to delivering high-quality solutions that meet the unique
+            needs of each client.
+          </p>
+          <p>
+            In addition to its core services, 201 Lab also offers support and
+            maintenance services to ensure that its clients' systems are always
+            up and running smoothly. The company's team is available to provide
+            assistance and troubleshooting support whenever needed, and can help
+            clients to keep their systems and networks secure and protected
+            against potential threats.
           </p>
         </div>
       </div>
