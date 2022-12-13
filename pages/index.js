@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Head from "next/head";
 import Layout from "../components/Layout";
 
@@ -10,16 +11,24 @@ export default function IndexPage() {
       </Head>
       <div className="main-wrapper">
         <h1>
-          <img className="logo" alt="201 Lab" src="/images/201lablogo.png" />
+          <Image
+            className="logo"
+            width={160}
+            height={66}
+            alt="201 Lab"
+            src="/images/201lablogo.png"
+          />
         </h1>
         <div className="text-wrapper">
           <h3>Referrals Only</h3>
           <p>
-            201 Lab is a technology company that specializes in web design, web
-            development, systems, networking, and security. The company was
-            founded with the goal of helping businesses and organizations to
-            improve their online presence and protect their networks from cyber
-            threats.
+            201 Lab is a technology company that specializes in{" "}
+            <strong>
+              web design, web development, systems, networking, and security
+            </strong>
+            . The company was founded with the goal of helping businesses and
+            organizations to improve their online presence and protect their
+            networks from cyber threats.
           </p>
           <p>
             With a team of experienced professionals, 201 Lab offers a range of
