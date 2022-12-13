@@ -34,18 +34,18 @@ export default function IndexPage() {
             With a team of experienced professionals, 201 Lab offers a range of
             services that can help clients to design and develop user-friendly
             websites, streamline their business processes, and enhance their
-            network security. The company's experts have extensive knowledge of
-            the latest technologies and trends in the industry, and are
-            committed to delivering high-quality solutions that meet the unique
-            needs of each client.
+            network security. The company&apos;s experts have extensive
+            knowledge of the latest technologies and trends in the industry, and
+            are committed to delivering high-quality solutions that meet the
+            unique needs of each client.
           </p>
           <p>
             In addition to its core services, 201 Lab also offers support and
-            maintenance services to ensure that its clients' systems are always
-            up and running smoothly. The company's team is available to provide
-            assistance and troubleshooting support whenever needed, and can help
-            clients to keep their systems and networks secure and protected
-            against potential threats.
+            maintenance services to ensure that its clients&apos; systems are
+            always up and running smoothly. The company&apos;s team is available
+            to provide assistance and troubleshooting support whenever needed,
+            and can help clients to keep their systems and networks secure and
+            protected against potential threats.
           </p>
         </div>
       </div>
