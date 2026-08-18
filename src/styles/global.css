@@ -1,0 +1,258 @@
+/*
+  201 Lab design system.
+
+  The palette is taken from the logo mark itself — an NFPA-704 style hazard
+  diamond in red, blue, yellow and white on black. Those four are the accent
+  set; nothing else gets invented. The page ground is the bone the 2022 site
+  used (#eeeee8), which is what makes the black type read as ink rather than
+  as a screen.
+
+  The visual idea throughout is a spec sheet: hairline rules, mono labels,
+  tabular rows. It is the right register for a studio that ships production
+  systems, and it happens to be exactly what Custom Panel produces.
+*/
+
+:root {
+  /* Brand — sampled from public/images/201lablogo.png */
+  --red: #ec2324;
+  --blue: #0068ff;
+  --yellow: #f7cd00;
+
+  /* Ground and ink */
+  --bone: #eeeee8;
+  --bone-sunk: #e4e4dc;
+  --ink: #14140f;
+  --ink-soft: #4a4a42;
+  --rule: #c9c9bf;
+  --paper: #f7f7f2;
+
+  --bg: var(--bone);
+  --fg: var(--ink);
+  --fg-soft: var(--ink-soft);
+  --surface: var(--paper);
+  --surface-sunk: var(--bone-sunk);
+  --border: var(--rule);
+  --accent: var(--blue);
+
+  /* A grotesque stack with wide tracking stands in for the logo's extended
+     face. The repo carries eurostile-extended.ttf, but Eurostile is a
+     licensed commercial typeface and self-hosting it for web use needs a
+     webfont licence we have not confirmed — see the README. Swapping it in
+     later is one @font-face rule and one token. */
+  --font-display: ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: ui-sans-serif, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  --measure: 62ch;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --shell: 1200px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131311;
+    --fg: #ecece4;
+    --fg-soft: #a5a59a;
+    --surface: #1c1c19;
+    --surface-sunk: #232320;
+    --border: #35352f;
+    /* The logo blue is too dark to read on near-black; lift it rather than
+       keeping a token that fails contrast. */
+    --accent: #5c9cff;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 { font-size: clamp(2.5rem, 1.6rem + 4.2vw, 5rem); }
+h3 { font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem); }
+
+/* Section headings own the space beneath them. h1 and h3 do not: the hero
+   sets its own lede spacing, and h3 mostly sits in cards and rows that space
+   themselves with gap. */
+h2 {
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  margin-bottom: 1.5rem;
+}
+
+p { margin: 0 0 1.1em; max-width: var(--measure); text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+
+a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: var(--accent); }
+
+img, svg { max-width: 100%; height: auto; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------------------------------------------------------------- layout */
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  border-top: 1px solid var(--border);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.75rem 1.25rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* The mono kicker that labels each section, like a field on a spec sheet. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--fg-soft);
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: none;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+.lede {
+  font-size: clamp(1.1rem, 1rem + 0.6vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.muted { color: var(--fg-soft); }
+
+/* ---------------------------------------------------------------- button */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.4rem;
+  border: 1px solid var(--fg);
+  background: var(--fg);
+  color: var(--bg);
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.btn:hover { background: transparent; color: var(--fg); }
+
+.btn--ghost { background: transparent; color: var(--fg); }
+.btn--ghost:hover { background: var(--fg); color: var(--bg); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+
+/* ------------------------------------------------------------------ grid */
+
+.grid { display: grid; gap: clamp(1.5rem, 3vw, 2.5rem); }
+@media (min-width: 720px) {
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Spec-sheet card: a bordered field with a mono index in the corner. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.card__index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  color: var(--fg-soft);
+}
+.card p { font-size: 0.95rem; }
+
+/* Tabular rows, used for the services list and the how-it-works steps. */
+.rows { border-top: 1px solid var(--border); margin-top: 2.5rem; }
+.row {
+  display: grid;
+  gap: 0.35rem 2rem;
+  padding-block: clamp(1.25rem, 3vw, 1.75rem);
+  border-bottom: 1px solid var(--border);
+}
+@media (min-width: 800px) {
+  .row { grid-template-columns: 4rem 16rem 1fr; align-items: start; }
+}
+.row__num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  color: var(--fg-soft);
+  padding-top: 0.35rem;
+}
+.row h3 { font-size: 1.15rem; }
+.row p { font-size: 0.95rem; margin: 0; }
+
+.note {
+  border-left: 3px solid var(--yellow);
+  background: var(--surface-sunk);
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+}

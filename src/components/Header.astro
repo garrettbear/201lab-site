@@ -1,0 +1,90 @@
+---
+const { pathname } = Astro.url;
+const isCurrent = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+
+const links = [
+  { href: '/custom-panel/', label: 'Custom Panel' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href="/">
+      <svg class="brand__mark" width="30" height="30" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+        <g stroke="var(--fg)" stroke-width="5" stroke-linejoin="round">
+          <polygon points="50,0 75,25 50,50 25,25" fill="#ec2324" />
+          <polygon points="0,50 25,25 50,50 25,75" fill="#0068ff" />
+          <polygon points="100,50 75,75 50,50 75,25" fill="#f7cd00" />
+          <polygon points="50,100 25,75 50,50 75,75" fill="var(--bg)" />
+        </g>
+      </svg>
+      <span class="brand__word">201 Lab</span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul>
+        {links.map((link) => (
+          <li>
+            <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4.25rem;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+  .brand__mark { flex: none; }
+  .brand__word {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  nav ul {
+    display: flex;
+    gap: clamp(0.9rem, 3vw, 2rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-block: 0.35rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  nav a:hover { border-bottom-color: var(--accent); }
+  nav a[aria-current='page'] { border-bottom-color: var(--fg); }
+</style>

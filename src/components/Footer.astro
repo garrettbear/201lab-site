@@ -1,0 +1,41 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <p class="site-footer__brand">201&nbsp;Lab</p>
+    <p class="muted site-footer__note">
+      Custom Panel is a product of 201&nbsp;Lab.
+    </p>
+    <p class="muted site-footer__copy">&copy; {year} 201 Lab. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding-block: 2.5rem;
+    margin-top: auto;
+  }
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 2rem;
+  }
+  .site-footer__brand {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .site-footer__note { margin: 0; font-size: 0.9rem; }
+  .site-footer__copy {
+    margin: 0;
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+</style>
