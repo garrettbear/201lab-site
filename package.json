@@ -1,18 +1,19 @@
 {
-  "name": "201",
-  "version": "0.1.0",
+  "name": "201lab-site",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "description": "201Lab.com — 201 Lab studio site, and home of Custom Panel by 201 Lab.",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
   },
-  "dependencies": {
-    "eslint": "8.29.0",
-    "eslint-config-next": "13.0.6",
-    "next": "13.0.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+  "devDependencies": {
+    "@astrojs/check": "0.9.4",
+    "astro": "5.1.1",
+    "playwright": "^1.49.1",
+    "typescript": "5.7.2"
   }
 }

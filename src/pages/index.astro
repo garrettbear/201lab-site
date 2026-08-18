@@ -1,0 +1,202 @@
+---
+import Base from '../layouts/Base.astro';
+import Diamond from '../components/Diamond.astro';
+
+const services = [
+  {
+    num: '01',
+    name: 'Commerce builds',
+    body:
+      'Shopify storefronts and the custom tooling around them — product configurators, theme app extensions, checkout and fulfilment integrations. The kind of work where the storefront is only half the job and the production spec is the other half.',
+  },
+  {
+    num: '02',
+    name: 'Web design & development',
+    body:
+      'Sites and applications built to be fast on a phone and maintainable a year later. No framework tax where none is needed, and no build nobody but us can run.',
+  },
+  {
+    num: '03',
+    name: 'Systems & integration',
+    body:
+      'Connecting the tools a business already runs on so data stops being retyped between them, and so the handoffs that matter are automated rather than remembered.',
+  },
+  {
+    num: '04',
+    name: 'Networking & security',
+    body:
+      'Network design, hardening and ongoing maintenance. Practical security for organisations that need it to work rather than to look impressive on a slide.',
+  },
+];
+---
+
+<Base
+  title="201 Lab — software, systems, and Custom Panel"
+  description="201 Lab is a technology studio building commerce software, internal systems, networks and security. Home of Custom Panel, the product configurator for Shopify."
+  path="/"
+>
+  <!-- ---------------------------------------------------------- hero -->
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">201 Lab — Technology studio</p>
+      <h1>We build the software that runs behind the storefront.</h1>
+      <p class="lede">
+        Commerce front ends and the production systems underneath them, plus the
+        networks and security that keep it all standing up. We take a small
+        number of projects and stay on them.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="/custom-panel/">See Custom Panel</a>
+        <a class="btn btn--ghost" href="#contact">Start a project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------- flagship -->
+  <section class="section flagship" id="custom-panel">
+    <div class="shell">
+      <p class="eyebrow">Flagship product</p>
+      <div class="flagship__grid">
+        <div>
+          <h2>Custom Panel</h2>
+          <p class="lede">
+            A Shopify app that turns a product into one the customer configures
+            themselves — pick the colours of each region, add their own text,
+            watch it update live, and send the order through with a complete
+            production spec and a rendered mockup attached.
+          </p>
+          <p>
+            It grew out of a tote builder we shipped for an apparel brand that
+            is live and selling today. Custom Panel is that system generalised,
+            so any store with flat-panel products can run it without us
+            building it again from scratch.
+          </p>
+          <div class="btn-row">
+            <a class="btn" href="/custom-panel/">How it works</a>
+          </div>
+        </div>
+
+        <!-- A swatch strip: the product's own vocabulary, used as the visual. -->
+        <figure class="swatches" aria-hidden="true">
+          <div class="swatches__row">
+            <span style="--c:#e8dfcc"></span>
+            <span style="--c:#e4622b"></span>
+            <span style="--c:#f4efe1"></span>
+            <span style="--c:#8b9d7b"></span>
+            <span style="--c:#243b53"></span>
+            <span style="--c:#b4674d"></span>
+            <span style="--c:#2f3133"></span>
+          </div>
+          <figcaption>Front panel / Top stripe / Left strap …</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------- services -->
+  <section class="section" id="services">
+    <div class="shell">
+      <p class="eyebrow">What we do</p>
+      <h2>Four things, done properly.</h2>
+      <div class="rows">
+        {services.map((service) => (
+          <article class="row">
+            <p class="row__num">{service.num}</p>
+            <h3>{service.name}</h3>
+            <p>{service.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------- approach -->
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow">How we work</p>
+      <h2>Boring where it counts.</h2>
+      <div class="grid grid--3" style="margin-top:2.5rem">
+        <article class="card">
+          <p class="card__index">A</p>
+          <h3>Nothing fails silently</h3>
+          <p>
+            A job that did no work does not report success. We have been burned
+            by a sync that exited clean having pulled nothing, and we build so
+            that cannot happen quietly.
+          </p>
+        </article>
+        <article class="card">
+          <p class="card__index">B</p>
+          <h3>Versions get pinned</h3>
+          <p>
+            Every external dependency is pinned to an exact version and smoke
+            tested. "Latest" is how you end up debugging someone else's
+            instrumented build at midnight.
+          </p>
+        </article>
+        <article class="card">
+          <p class="card__index">C</p>
+          <h3>Decisions get written down</h3>
+          <p>
+            The reasoning behind an architecture lives in the repository, not in
+            somebody's memory. You keep that when the engagement ends.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- -------------------------------------------------------- contact -->
+  <section class="section" id="contact">
+    <div class="shell contact">
+      <Diamond size={56} />
+      <h2>Tell us what you are building.</h2>
+      <p class="lede">
+        New client work is selective and mostly comes by referral. If you have a
+        project that sounds like the above, write to us and tell us about it.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:hello@201lab.com">hello@201lab.com</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(3.5rem, 11vw, 8.5rem);
+  }
+  .hero .lede { margin-top: 1.5rem; }
+
+  .flagship__grid { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+  @media (min-width: 900px) {
+    .flagship__grid { grid-template-columns: 1.15fr 0.85fr; }
+  }
+
+  .swatches {
+    margin: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 1.25rem;
+  }
+  .swatches__row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+  }
+  .swatches__row span {
+    aspect-ratio: 1;
+    background: var(--c);
+    border: 1px solid rgb(0 0 0 / 0.18);
+  }
+  .swatches figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--fg-soft);
+    margin-top: 0.9rem;
+  }
+
+  .contact { text-align: center; display: grid; justify-items: center; gap: 1rem; }
+  .contact .lede { max-width: 48ch; }
+</style>

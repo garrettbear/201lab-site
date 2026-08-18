@@ -1,0 +1,38 @@
+---
+/*
+  The 201 Lab mark, redrawn as vector.
+
+  It is an NFPA-704 hazard diamond: four quadrant squares set on point, in
+  the order the standard uses — health blue at west, flammability red at
+  north, reactivity yellow at east, special white at south. Redrawing it
+  rather than shipping the PNG means it stays sharp at any size, inherits the
+  page's ink colour for its rules, and can be used inline as a bullet.
+*/
+interface Props {
+  size?: number;
+  /** Decorative by default; give it a label only when it is the sole logo. */
+  label?: string;
+  class?: string;
+}
+const { size = 40, label, class: className } = Astro.props;
+const decorative = label === undefined;
+---
+
+<svg
+  class={className}
+  width={size}
+  height={size}
+  viewBox="0 0 100 100"
+  role={decorative ? 'presentation' : 'img'}
+  aria-hidden={decorative ? 'true' : undefined}
+  aria-label={label}
+  focusable="false"
+>
+  {label && <title>{label}</title>}
+  <g stroke="var(--mark-rule, #14140f)" stroke-width="5" stroke-linejoin="round">
+    <polygon points="50,0 75,25 50,50 25,25" fill="#ec2324" />
+    <polygon points="0,50 25,25 50,50 25,75" fill="#0068ff" />
+    <polygon points="100,50 75,75 50,50 75,25" fill="#f7cd00" />
+    <polygon points="50,100 25,75 50,50 75,75" fill="#ffffff" />
+  </g>
+</svg>

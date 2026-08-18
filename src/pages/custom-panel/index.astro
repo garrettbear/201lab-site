@@ -1,0 +1,325 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const steps = [
+  {
+    num: '01',
+    name: 'You define the regions',
+    body:
+      'Your product artwork is tagged once, region by region — front panel, each stripe, the straps, the trim. Regions can be grouped, restricted to a subset of your colours, and tied together so colouring one follows through to another until the customer decides otherwise.',
+  },
+  {
+    num: '02',
+    name: 'The customer configures it',
+    body:
+      'They pick colours per region, add their text, and see it update instantly. Tap the drawing to jump straight to that region. Flip front to back. Hit random. Undo fifty steps. It all renders in the browser, so it stays quick on a phone.',
+  },
+  {
+    num: '03',
+    name: 'The order carries the spec',
+    body:
+      'The line item arrives with a human-readable production spec — one row per region, in the order your team reads — plus a rendered mockup image and a machine-readable copy of the exact configuration for reorders.',
+  },
+  {
+    num: '04',
+    name: 'Production works from it',
+    body:
+      'Your team sees the regions, the colours and the mockup on the order screen in Shopify admin, and can print a spec sheet. Nobody has to interpret a customer note or look a colour code up.',
+  },
+];
+
+const specRows = [
+  ['Body / Front panel', 'Natural'],
+  ['Stripes / Top stripe', 'Sunrise Orange'],
+  ['Stripes / Middle stripe', 'Cream'],
+  ['Straps & trim / Left strap', 'Tan Webbing'],
+  ['Straps & trim / Right strap', 'Tan Webbing'],
+];
+---
+
+<Base
+  title="Custom Panel by 201 Lab — product configurator for Shopify"
+  description="Custom Panel turns flat-panel products into customer-configurable ones: colour every region, add text, live preview, and orders that arrive with a full production spec and mockup."
+  path="/custom-panel/"
+>
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Custom Panel by 201 Lab</p>
+      <h1>Let customers build it, and still know exactly what to make.</h1>
+      <p class="lede">
+        Custom Panel turns a product into one your customers configure
+        themselves — colours per region, their own text, a live preview — and
+        sends the order through with a complete production spec and a rendered
+        mockup attached.
+      </p>
+      <p class="status">
+        <strong>Status:</strong> in development. We are building toward a first
+        release with a small number of pilot stores.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="#pilot">Ask about the pilot</a>
+        <a class="btn btn--ghost" href="#scope">What it works on</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------- steps -->
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow">How it works</p>
+      <h2>Four steps, end to end.</h2>
+      <div class="rows">
+        {steps.map((step) => (
+          <article class="row">
+            <p class="row__num">{step.num}</p>
+            <h3>{step.name}</h3>
+            <p>{step.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------- order spec -->
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow">What production receives</p>
+      <div class="split">
+        <div>
+          <h2>An order you can actually make.</h2>
+          <p>
+            The most expensive part of custom work is not the configurator. It
+            is the order arriving as a free-text note that somebody has to
+            interpret, and getting it wrong after the goods are cut.
+          </p>
+          <p>
+            Every Custom Panel order carries one row per region, named the way
+            your team names them, in the order they work through. Underneath
+            that sits a machine-readable copy of the configuration, so a
+            reorder is exact rather than reconstructed.
+          </p>
+        </div>
+
+        <figure class="spec">
+          <figcaption>Line item — production spec</figcaption>
+          <table>
+            <tbody>
+              {specRows.map(([region, value]) => (
+                <tr>
+                  <th scope="row">{region}</th>
+                  <td>{value}</td>
+                </tr>
+              ))}
+              <tr class="spec__machine">
+                <th scope="row">_mockup_url</th>
+                <td>mockup.png</td>
+              </tr>
+            </tbody>
+          </table>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------------------------------------------------------------- 3D -->
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow">The part nobody else does</p>
+      <h2>Your flat artwork is the 3D texture.</h2>
+      <div class="grid grid--2" style="margin-top:2.5rem">
+        <p>
+          Most configurators need a separate rendered asset for every colour
+          combination, which is why their previews are either flat or
+          expensive. Custom Panel treats the same tagged artwork that drives the
+          2D preview as the texture that paints a 3D model, so the number of
+          assets you have to produce for a hundred colourways is zero.
+        </p>
+        <p>
+          The model itself is generated from your artwork's measurements rather
+          than modelled by hand, which means a change to the dimensions is a
+          rebuild instead of a quote. 3D is an optional tier — the 2D
+          configurator is complete on its own.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------- decorations -->
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow">Personalisation</p>
+      <h2>Text now, logos next.</h2>
+      <div class="grid grid--2" style="margin-top:2.5rem">
+        <article class="card">
+          <p class="card__index">Available at launch</p>
+          <h3>Customer text</h3>
+          <p>
+            Rendered live as they type, from a small set of fonts licensed for
+            commercial use. Character limits per region, an optional word
+            blocklist you control, and the exact text, font and size recorded on
+            the order so production sets it correctly.
+          </p>
+        </article>
+        <article class="card">
+          <p class="card__index">Planned, next release</p>
+          <h3>Logo upload</h3>
+          <p>
+            Drag, scale and rotate a customer's own artwork inside a region,
+            with a resolution warning when the file is too small for the printed
+            size, and an optional review queue so nothing reaches production
+            before you have approved it.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------- scope -->
+  <section class="section" id="scope">
+    <div class="shell">
+      <p class="eyebrow">Scope</p>
+      <h2>What it works on — and what it doesn't.</h2>
+      <div class="grid grid--2" style="margin-top:2.5rem">
+        <div>
+          <h3 class="scope__head">Built for</h3>
+          <ul class="ticks">
+            <li>Totes and bags</li>
+            <li>Aprons and workwear</li>
+            <li>Banners and pennants</li>
+            <li>Patches and badges</li>
+            <li>Flat print regions on apparel</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="scope__head">Not yet</h3>
+          <ul class="crosses">
+            <li>Mugs, bottles and other curved surfaces</li>
+            <li>Engraving previews</li>
+            <li>All-over print</li>
+          </ul>
+          <p class="note">
+            We would rather tell you this up front than take the project and
+            find out together.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --------------------------------------------------- onboarding -->
+  <section class="section">
+    <div class="shell">
+      <p class="eyebrow">Getting your products in</p>
+      <h2>You probably don't have tagged artwork. That's fine.</h2>
+      <p class="lede" style="margin-bottom:2.5rem">
+        Preparing artwork is the real work in a configurator, so there are three
+        ways in depending on how much of it you want to do.
+      </p>
+      <div class="grid grid--3">
+        <article class="card">
+          <p class="card__index">Tier 1</p>
+          <h3>Start from a blank</h3>
+          <p>
+            Use one of our ready-made templates — tote, apron, tee, hat panel —
+            and set your own colours against it. Nothing to prepare.
+          </p>
+        </article>
+        <article class="card">
+          <p class="card__index">Tier 2</p>
+          <h3>We trace your artwork</h3>
+          <p>
+            Send flat art and we convert it into a tagged template, with a human
+            checking the result rather than trusting the tracing.
+          </p>
+        </article>
+        <article class="card">
+          <p class="card__index">Tier 3</p>
+          <h3>Done for you</h3>
+          <p>
+            Send artwork or even photographs and we deliver the finished
+            template, and the 3D model if you want the preview.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------- pilot -->
+  <section class="section" id="pilot">
+    <div class="shell contact">
+      <h2>We're looking for pilot stores.</h2>
+      <p class="lede">
+        If you sell a flat-panel product and customers keep asking for it in
+        their own colours, we would like to talk. Tell us what you make and
+        we'll tell you honestly whether Custom Panel fits it.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href="mailto:hello@201lab.com?subject=Custom%20Panel%20pilot">
+          hello@201lab.com
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: clamp(3.5rem, 10vw, 7.5rem); }
+  .hero .lede { margin-top: 1.5rem; }
+
+  .status {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0.75rem 1rem;
+    margin-top: 1.75rem;
+    max-width: 52ch;
+  }
+
+  .split { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: start; }
+  @media (min-width: 900px) { .split { grid-template-columns: 1fr 1fr; } }
+
+  .spec {
+    margin: 0;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .spec figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-soft);
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .spec table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  .spec th,
+  .spec td { text-align: left; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); font-weight: 400; }
+  .spec th { color: var(--fg-soft); }
+  .spec td { font-family: var(--font-mono); font-size: 0.8rem; }
+  .spec tr:last-child th,
+  .spec tr:last-child td { border-bottom: 0; }
+  .spec__machine { opacity: 0.55; }
+  .spec__machine th { font-family: var(--font-mono); font-size: 0.75rem; }
+
+  .scope__head {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-soft);
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .ticks,
+  .crosses { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 0.6rem; }
+  .ticks li,
+  .crosses li { display: flex; gap: 0.7rem; align-items: baseline; font-size: 0.95rem; }
+  .ticks li::before { content: '+'; color: var(--blue); font-family: var(--font-mono); }
+  .crosses li::before { content: '\2013'; color: var(--red); font-family: var(--font-mono); }
+
+  .contact { text-align: center; display: grid; justify-items: center; gap: 1rem; }
+  .contact .lede { max-width: 52ch; }
+</style>
