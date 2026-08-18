@@ -2,7 +2,7 @@
 
 The 201 Lab studio site, and the home of **Custom Panel by 201 Lab**.
 
-Astro, static output, deployed on Vercel. No client-side JavaScript ships
+Astro, static output, deployed on Netlify. No client-side JavaScript ships
 today — every page is prerendered HTML and CSS, which is what keeps it quick
 on the mobile connections most of this traffic arrives on. Astro was chosen
 over a heavier framework precisely so that an interactive Custom Panel demo
@@ -42,6 +42,17 @@ literally what Custom Panel outputs.
 Dark mode is handled with `prefers-color-scheme` and token overrides only.
 The logo blue fails contrast on near-black, so the dark theme lifts the
 accent rather than keeping a token that cannot be read.
+
+## Deployment
+
+Netlify, from `netlify.toml` in this repo rather than from the dashboard's
+build settings, so the build command and publish directory are reviewed
+alongside the code. `npm run build` emits static HTML into `dist/`.
+
+If the Netlify site still has the **Next.js build plugin** enabled from the
+previous stack, it needs removing in the dashboard — a Next plugin has
+nothing to do on an Astro build and will fail the deploy. `netlify.toml` can
+override the build command but cannot uninstall a UI-installed plugin.
 
 ## Things that need a decision
 

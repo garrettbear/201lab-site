@@ -1,0 +1,29 @@
+# Build configuration lives in the repository, not in the Netlify UI.
+#
+# The site was previously a Next.js app, so the dashboard's build settings
+# (and possibly a Next build plugin) still point at that. A netlify.toml in
+# the repo overrides the UI's build command and publish directory, which
+# keeps "how this site is built" reviewable in the same pull request as the
+# code it builds.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Astro emits 404.html; Netlify serves it for unmatched paths automatically.
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# Fingerprinted build assets are immutable; everything else stays revalidated.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
